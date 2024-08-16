@@ -8,6 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('/', 'Home::index');
 
 $routes->get('/', 'User::index');
-$routes->post('/', 'User::genUrl', ['as' => 'url.genUrl']);
+$routes->post('/', 'User::genUrl', ['as' => 'user.genUrl']);
 
 $routes->get('(:any)', 'User::redirect');

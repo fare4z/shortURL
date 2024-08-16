@@ -1,68 +1,61 @@
-# CodeIgniter 4 Application Starter
+# shortURL
+![shortURL Logo](./logo_shortURL.png)
 
-## What is CodeIgniter?
+shortURL is a self-hosted URL shortening service that allows you to shorten URLs on your own server and under your own domain. With shortURL, you can take full control of your URL shortening service, customize it to your needs, and ensure the security and privacy of your links.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Sample : https://fare4z.com/url/
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Features
+- **Custom Domain:** Use your own domain for shortened URLs.
+- **Full Control:** Host the service on your own server, ensuring full control over your data.
+- **QR Code Generation:** Generate QR codes for your shortened URLs.
+- **Tracking:** Keep track of the number of clicks for each shortened URL.
+- **Responsive Design:** The service is optimized for mobile and desktop use.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Framework:** CodeIgniter 4
+- **Language:** PHP 8.3^
+- **Database:** MySQL / MariaDB
+- **Composer:** Dependency Management
 
-## Installation & updates
+## Installation
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Step 1: Clone the Repository
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+```bash
+git clone https://github.com/fare4z/shortURL.git
+cd shortURL
+```
 
-## Setup
+### Step 2: Install Dependencies
+Make sure you have [Composer](https://getcomposer.org/) installed, then run :
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+```bash
+composer install
+```
 
-## Important Change with index.php
+### Step 3: Configure Environment Variables
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Copy the .env.example file to .env and update the following details:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+* Database Configuration: Update the database connection details (DB_DATABASE, DB_USERNAME, DB_PASSWORD) according to your environment.
+* Base URL: Update the app.baseURL in the .env file to reflect your domain
 
-**Please** read the user guide for a better explanation of how CI4 works!
+### Step 4: Run Migrations
 
-## Repository Management
+To set up the database, run the following command:
+```bash
+php spark migrate
+```
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### Step 5 : Serve the Application
+You can serve the application locally using the built-in server : 
+```bash
+php spark serve
+```
+Access the application by navigating to http://localhost:8080 in your browser.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### Contributing
 
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Contributions are welcome! Feel free to open an issue or submit a pull request.
